@@ -9,6 +9,7 @@ def main():
         print("0 arguments.")
     elif num_args == 1:
         print(f"{num_args} argument:")
+        print(f"1: {argv[0]}")
     else:
         print(f"{num_args} arguments:")
         for i in range(num_args):
