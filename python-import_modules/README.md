@@ -151,3 +151,95 @@ print(objectAttributesAndMethods)
 6. How to prevent code in your script from being executed when imported?
 
 To prevent code in your script from being executed when imported as a module, you can use a special Python variable called __name__. When a Python script is executed, the __name__ variable is set to "__main__". However, when a script is imported as a module in another script, the __name__ variable is set to the name of the script/module.
+
+-----------------------------------------------------------------------------------------------------------------------
+# myModule.py
+
+def someFunction():
+# Your code here
+
+if __name__ == "__main__":
+# This code will only run when the script is executed directly
+# It won't run when this script is imported as a module
+
+print("This code is executed only when the script is run directly.")
+
+-----------------------------------------------------------------------------------------------------------------------
+
+In this example, the code under the if __name__ == "__main__": block will only be executed if you run myModule.py directly. If you import myModule into another script, the code inside the if __name__ == "__main__": block will not run.
+Example of how you can use the myModule:
+
+-----------------------------------------------------------------------------------------------------------------------
+# anotherScript.py
+import myModule
+
+myModule.someFunction()
+# This will execute the function in myModule
+# The code inside the if __name__ == "__main__": block in myModule will not run when imported.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+7. How to use command line arguments with your Python programs?
+
+Using command-line arguments in Python allows you to pass parameters or options to your Python scripts when you run them from the command line. Python provides the sys.argv list and the argparse module to handle command-line arguments.
+
+- Method 1: Using sys.argv
+The sys.argv list contains the command-line arguments passed to your Python script. The first element (sys.argv[0]) is the script name itself, and the rest of the elements are the arguments passed.
+
+Import the sys module.
+Access command-line arguments using sys.argv.
+
+-----------------------------------------------------------------------------------------------------------------------
+import sys
+
+# Print the script name
+print("Script name:", sys.argv[0])
+
+# Print other command-line arguments
+for arg in sys.argv[1:]:
+    print("Argument:", arg)
+
+# Output
+Script name: myscript.py
+Argument: arg1
+Argument: arg2
+
+-----------------------------------------------------------------------------------------------------------------------
+
+- Method 2: Using argparse
+The argparse module provides a more structured way to parse and handle command-line arguments. It allows you to define argument types, descriptions, and more.
+
+Import the argparse module.
+Create an ArgumentParser object and define your command-line arguments.
+Parse the command-line arguments using parser.parseArgs().
+
+-----------------------------------------------------------------------------------------------------------------------
+import argparse
+
+parser = argparse.ArgumentParser(description="Description of your script")
+
+# Add positional arguments
+parser.addArgument("arg1", type=int, help="Description of arg1")
+parser.addArgument("arg2", type=str, help="Description of arg2")
+
+# Add optional arguments
+parser.addArgument("--optionalArg", type=float, default=0.0, help="Description of optional_arg")
+
+args = parser.parseArgs()
+
+# Access the parsed arguments
+arg1 = args.arg1
+arg2 = args.arg2
+optionalArg = args.optionalArg
+
+print("arg1:", arg1)
+print("arg2:", arg2)
+print("optionalArg:", optionalArg)
+
+# If you run your script as python myscript.py 42 hello --optionalArg 3.14, the output will be:
+arg1: 42
+arg2: hello
+optionalArg: 3.14
+
+-----------------------------------------------------------------------------------------------------------------------
+
