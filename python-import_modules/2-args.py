@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
     import sys
-    num_args = len(sys.argv) - 1
-    if num_args == 0:
+    numArgs = len(sys.argv) - 1
+    if numArgs == 0:
         print("0 arguments.")
-    elif num_args == 1:
+    elif numArgs == 1:
         print("1 argument:")
     else:
         print(f"{num_args} arguments:")
-    for i in range(num_args):
+    for i in range(numArgs):
         print(f"{i + 1}: {sys.argv[i + 1]}")
