@@ -2,7 +2,7 @@
 
 # Objectives
 
-## *1. Why indentation is so important in Python?
+### Why indentation is so important in Python?
 
 Indentation plays a critical role in Python because it determines the structure of blocks of code. Unlike many other programming languages that use braces (`{}`) or specific keywords to define code blocks, Python uses whitespace (specifically, indentation) to determine the scope and grouping of statements. Here's why indentation is essential in Python:
 
