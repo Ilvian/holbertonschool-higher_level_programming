@@ -3,6 +3,7 @@
 # Objectives
 
 ## What are sets and how to use them?
+## What are the most common methods of set and how to use them?
 
 Sets are a data type that represent a collection of unique elements. In many programming languages, including Python, sets are provided as a built-in type. Sets are especially useful when you want to keep track of items, and you want to ensure that there are no duplicates.
 
@@ -56,3 +57,42 @@ diff = fruits - colors
 
 While sets are powerful, they're not always the right choice. For example, if order matters or if you want to store non-unique items, a list or another data type might be more appropriate.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+## When to use sets versus lists?
+
+Both sets and lists are fundamental data structures in Python, but they serve different purposes. Here's a guide to help you determine when to use one over the other:
+
+### Use a Set when:
+
+1. **Uniqueness is Required**: Sets automatically ensure all elements are unique. This can be particularly useful when you want to eliminate duplicate entries.
+   
+2. **Membership Tests are Frequent**: Checking for membership (i.e., whether an element exists in the collection) is faster with sets than with lists. This is because sets are implemented as hash tables.
+
+3. **Order Doesn't Matter**: Sets are inherently unordered, so if you don't need to maintain any particular order of elements, sets can be a suitable choice.
+
+4. **You Need Set Operations**: If you're planning to perform operations like union, intersection, difference, etc., then sets offer these natively.
+
+5. **You Don't Need to Store Non-Hashable Types**: Sets only store hashable types (e.g., numbers, strings, tuples). If you want to store lists or dictionaries, you can't use sets directly.
+
+### Use a List when:
+
+1. **Order is Important**: Lists maintain the order of elements. If the sequence of elements matters, go with lists.
+
+2. **Duplicates are Allowed or Needed**: If you need to account for duplicate elements or maintain counts of items, lists will serve you better.
+
+3. **You Need to Use Indexes**: Lists allow you to access items by their index, which can be especially useful for many algorithms or when sequencing is important.
+
+4. **You Need Advanced Slicing**: Lists in Python allow for comprehensive slicing operations.
+
+5. **Variable Types or Non-Hashable Types are Required**: While sets restrict you to hashable types, lists are more permissive and can store a wider range of object types, including other lists and dictionaries.
+
+6. **Data Manipulation**: Lists offer methods for directly modifying the data structure (e.g., appending, inserting, or removing elements), which may be more familiar or intuitive for certain operations.
+
+### In Summary:
+
+- Choose sets for quick membership tests, when you need to ensure uniqueness, or when you're planning to perform mathematical set operations.
+  
+- Choose lists when order matters, when duplicates are relevant, or when you need more complex data manipulations and access patterns.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
