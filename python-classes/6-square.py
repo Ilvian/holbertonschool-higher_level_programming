@@ -73,11 +73,12 @@ class Square:
         """
         if self.__size == 0:
             print()
-        for i in range(0, self.__position[1]):
-            print("")
-        for i in range(0, self.__size):
-            for j in range(0, self.__position[0]):
-                print(" ", end="")
-            for k in range(0, self.__size):
-                print("#", end="")
-            print("")
+        else:
+            for ver_space in range(self.__position[1]):
+                print()
+            for row in range(self.__size):
+                for hor_space in range(self.__position[0]):
+                    print(' ', end='')
+                for col in range(self.__size):
+                    print('#', end='')
+                print()
