@@ -17,6 +17,7 @@ class Square:
         """
         self.__size = size
 
+    @property
     def size(self):
         """
         python3 -c 'print(__import__("my_module").my_function.__doc__)'
@@ -24,6 +25,7 @@ class Square:
         """
         return self.__size
 
+    @size.setter
     def size(self, value):
         """
         python3 -c 'print(__import__("my_module").my_function.__doc__)'
