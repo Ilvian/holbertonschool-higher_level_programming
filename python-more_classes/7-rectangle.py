@@ -56,7 +56,7 @@ class Rectangle:
         new_rec = []
         for x in range(self.__height):
             for y in range(self.__width):
-                new_rec.append(self.print_symbol)
+                new_rec.append(str(self.print_symbol))
             if x < self.__height - 1:
                 new_rec.append("\n")
         return "".join(new_rec)
