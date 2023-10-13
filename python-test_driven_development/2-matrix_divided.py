@@ -1,42 +1,28 @@
 #!/usr/bin/python3
-"""
-python3 -c 'print(__import__("my_module").__doc__)'
-"""
+""" Substracts all cells of a matrix"""
 
 
 def matrix_divided(matrix, div):
+    """ Takes a matrix and divides every int or float inside it by div
     """
-    python3 -c 'print(__import__("my_module").my_function.__doc__)'
-    """
-    if not isinstance(matrix, list) or not matrix:
-        raise TypeError(
-                "matrix must be a matrix (list of lists) of integers/floats"
-                )
-
-    for row in matrix:
-        if not isinstance(row, list):
-            raise TypeError(
-                    "matrix must be a matrix (list of lists)"
-                    " of integers/floats"
-                    )
-
-    for row in matrix:
-        for i in row:
-            if not isinstance(i, (int, float)):
-                raise TypeError(
-                        "matrix must be a matrix "
-                        "(list of lists) of integers/floats"
-                        )
-
-    row_length = len(matrix[0])
-    for row in matrix:
-        if len(row) != row_length:
-            raise TypeError("Each row of the matrix must have the same size")
-
-    if not isinstance(div, (int, float)):
-        raise TypeError("div must be a number")
-
+    if type(div) not in [int, float]:
+        raise TypeError('div must be a number')
     if div == 0:
-        raise ZeroDivisionError("division by zero")
+        raise ZeroDivisionError('division by zero')
+    row_len = len(matrix[0])
+    new_matrix = []
+    for row in matrix:
+        new_row = []
+        if len(row) != row_len:
+            raise TypeError('Each row of the matrix must have the same size')
+        for elem in row:
+            if type(elem) not in [int, float]:
+                raise_err()
+            new_row.append(round(elem / div, 2))
+        new_matrix.append(new_row)
+    return new_matrix
 
-    return [[round(i / div, 2) for i in row] for row in matrix]
+
+def raise_err():
+    a = 'matrix must be a matrix (list of lists) of integers/floats'
+    raise TypeError(a)
