@@ -14,15 +14,13 @@ Traceback (most recent call last):
 TypeError: text must be a string
 
 Case #2: test argument being a list.
->>> text_indentation([This is a list])
+>>> text_indentation(['This is a list'])
 Traceback (most recent call last):
-...
 TypeError: text must be a string
 
 Case #3: test argument being Null.
 >>> text_indentation(None)
 Traceback (most recent call last):
-...
 TypeError: text must be a string
 
 Case #4: test passing an empty string.
@@ -32,7 +30,6 @@ Case #4: test passing an empty string.
 Case #5: test passing zero arguments.
 >>> text_indentation()
 Traceback (most recent call last):
-...
 TypeError: text_indentation() missing 1 required positional argument: 'text'
 
 Case #6: test the characters to insert '\n'

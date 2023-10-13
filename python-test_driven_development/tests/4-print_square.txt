@@ -1,49 +1,33 @@
-Test cases for '4-print_square.py'
-=================================
+Module 4-print_square
 
-Print a square
---------------
+def print_square(size) prints a square with the character # where size is the length of the square
 
->>> print_square = __import__('4-print_square').print_square
+	>>> print_square = __import__('4-print_square').print_square
 
-Cases to be evaluated:
+Function should print square with size "size"
 
-Case #1: test passing zero arguments.
->>> print_square()
-Traceback (most recent call last):
-...
-TypeError: print_square() missing 1 required positional argument: 'size'
+	>>> print_square(2)
+	##
+	##
 
-Case #2: test passing Null argument.
->>> print_square(None)
-Traceback (most recent call last):
-...
-TypeError: size must be an integer
+Size argument should be an int
 
-Case #3: test passing a negative number.
->>> print_square(-4)
-Traceback (most recent call last):
-...
-ValueError: size must be >= 0
+	>>> print_square('.!.')
+	Traceback (most recent call last):
+	TypeError: size must be an integer
 
-Case #4: test passing a float number.
->>> print_square(6.6)
-Traceback (most recent call last):
-...
-TypeError: size must be an integer
+Size cannot be a float type or less than 0
 
-Case #5: test passing a string.
->>> print_square("a")
-Traceback (most recent call last):
-...
-TypeError: size must be an integer
+	>>> print_square(-1.5)
+	Traceback (most recent call last):
+        TypeError: size must be an integer
 
-Case #6: test passing zero value.
->>> print_square(0)
-<BLANKLINE>
+size cannot be lower than 0
+	>>> print_square(-2)
+	Traceback (most recent call last):
+        ValueError: size must be >= 0
 
-Case #7: test passing an infinite number.
->>> print_square(float('inf'))
-Traceback (most recent call last):
-...
-TypeError: size must be an integer
+You need at least an argument
+	>>> print_square()
+	Traceback (most recent call last):
+	TypeError: print_square() missing 1 required positional argument: 'size'
