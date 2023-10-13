@@ -80,9 +80,5 @@ class Rectangle:
             return rect_2
 
     @classmethod
-    """
-    python3 -c 'print(__import__("my_module").my_function.__doc__)'
-    python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
-    """
     def square(cls, size=0):
         return cls(size, size)
