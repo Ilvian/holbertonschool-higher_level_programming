@@ -10,4 +10,4 @@ def read_file(filename=""):
     python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
     """
     with open(filename, "r", encoding="utf-8") as file:
-        print(file.read())
+        print(file.read(), end="")
