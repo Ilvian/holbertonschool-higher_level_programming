@@ -72,4 +72,4 @@ Area raises an exception
 	>>> bg = BaseGeometry()
 	>>> bg.area()
 	Traceback (most recent call last):
-	Exception: area() is not implemented 
+	Exception: area() is not implemented
