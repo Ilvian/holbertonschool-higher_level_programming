@@ -199,9 +199,7 @@ Serialization is the process of converting a data structure or object state into
 
 **What is deserialization:**
 
-Des
-
-erialization is the reverse process of serialization. While serialization is about converting a data structure or object into a format suitable for storage or transmission, deserialization is about converting that format back into a usable data structure or object.
+Deserialization is the reverse process of serialization. While serialization is about converting a data structure or object into a format suitable for storage or transmission, deserialization is about converting that format back into a usable data structure or object.
 
 ---
 
