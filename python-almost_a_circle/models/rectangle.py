@@ -85,7 +85,7 @@ class Rectangle(Base):
             print(" " * self.x, end="")
             print("#" * self.width)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         python3 -c 'print(__import__("my_module").my_function.__doc__)'
         python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
@@ -104,6 +104,9 @@ class Rectangle(Base):
                 elif a_index == 4:
                     self.y = arg
                 a_index += 1
+
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     def __str__(self):
         """
