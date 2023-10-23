@@ -46,7 +46,7 @@ class Square(Rectangle):
 
         for key, value in kwargs.items():
             setattr(self, key, value)
-    
+
     def to_dictionary(self):
         """
         python3 -c 'print(__import__("my_module").my_function.__doc__)'
