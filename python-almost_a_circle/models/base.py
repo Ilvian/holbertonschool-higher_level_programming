@@ -46,5 +46,5 @@ class Base:
                 f.write("[]")
             else:
                 for obj in list_objs:
-                    l_dict = [obj.to_dictionary()]
+                    l_dict = obj.to_dictionary()
                     f.write(Base.to_json_string(l_dict))
