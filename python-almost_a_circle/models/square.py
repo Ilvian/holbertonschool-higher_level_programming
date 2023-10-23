@@ -16,7 +16,7 @@ class Square(Rectangle):
         python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
         """
         super().__init__(size, size, x, y, id)
-    
+
     @property
     def size(self):
         return self.width
