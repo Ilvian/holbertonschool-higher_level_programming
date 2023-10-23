@@ -105,8 +105,6 @@ class Rectangle(Base):
                     self.y = arg
                 a_index += 1
 
-
-
     def __str__(self):
         """
         python3 -c 'print(__import__("my_module").my_function.__doc__)'
