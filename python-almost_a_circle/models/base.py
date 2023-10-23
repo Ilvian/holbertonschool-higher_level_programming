@@ -40,8 +40,9 @@ class Base:
         python3 -c 'print(__import__("my_module").my_function.__doc__)'
         python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
         """
+        l_dict = []
         if list_objs is not None:
             for obj in list_objs:
-                l_dict = [obj.to_dictionary()]
-        with open(cls.__name__ + ".json", "w") as f:
+                l_dict.append(obj.to_dictionary())
+        with open(cls.__name__ + ".json", 'w') as f:
             f.write(cls.to_json_string(l_dict))
