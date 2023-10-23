@@ -74,3 +74,11 @@ class Rectangle(Base):
         python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
         """
         return self.width * self.height
+
+    def display(self):
+        """
+        python3 -c 'print(__import__("my_module").my_function.__doc__)'
+        python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
+        """
+        for h in range(self.height):
+            print("#" * self.width)
