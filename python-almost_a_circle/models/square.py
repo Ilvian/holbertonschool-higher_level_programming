@@ -26,6 +26,27 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
+    def update(self, *args, **kwargs):
+        """
+        python3 -c 'print(__import__("my_module").my_function.__doc__)'
+        python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
+        """
+        if args:
+            a_index = 0
+            for arg in args:
+                if a_index == 0:
+                    self.id = arg
+                elif a_index == 1:
+                    self.size = arg
+                elif a_index == 2:
+                    self.x = arg
+                elif a_index == 3:
+                    self.y = arg
+                a_index += 1
+
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+
     def __str__(self):
         """
         python3 -c 'print(__import__("my_module").my_function.__doc__)'
