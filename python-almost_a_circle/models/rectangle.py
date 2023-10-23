@@ -85,6 +85,28 @@ class Rectangle(Base):
             print(" " * self.x, end="")
             print("#" * self.width)
 
+    def update(self, *args):
+        """
+        python3 -c 'print(__import__("my_module").my_function.__doc__)'
+        python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
+        """
+        if args:
+            a_index = 0
+            for arg in args:
+                if a_index == 0:
+                    self.id = arg
+                elif a_index == 1:
+                    self.width = arg
+                elif a_index == 2:
+                    self.height = arg
+                elif a_index == 3:
+                    self.x = arg
+                elif a_index == 4:
+                    self.y = arg
+                a_index += 1
+
+
+
     def __str__(self):
         """
         python3 -c 'print(__import__("my_module").my_function.__doc__)'
