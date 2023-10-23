@@ -4,6 +4,9 @@ python3 -c 'print(__import__("my_module").__doc__)'
 """
 
 
+import json
+
+
 class Base:
     """
     python3 -c 'print(__import__("my_module").MyClass.__doc__)'
@@ -20,3 +23,13 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+        python3 -c 'print(__import__("my_module").my_function.__doc__)'
+        python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
+        """
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
+        return json.dumps(list_dictionaries)
