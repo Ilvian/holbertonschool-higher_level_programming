@@ -82,3 +82,11 @@ class Rectangle(Base):
         """
         for h in range(self.height):
             print("#" * self.width)
+
+    def __str__(self):
+        """
+        python3 -c 'print(__import__("my_module").my_function.__doc__)'
+        python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
+        """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+                self.id, self.x, self.y, self.width, self.height)
