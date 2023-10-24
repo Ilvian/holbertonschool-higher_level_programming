@@ -67,3 +67,151 @@ with open("person.json", "r") as f:
 ```
 
 This approach allows you to serialize and deserialize custom classes in Python using JSON. If you find yourself dealing with more intricate cases, or you want a streamlined experience, consider libraries like `marshmallow` that offer enhanced serialization capabilities.
+
+
+## **Understanding and Using `*args` in Python**
+
+In Python, `*args` is a way to pass a variable number of arguments to a function. It allows you to pass any number of positional arguments to the function, which are then collected into a tuple.
+
+### Usage of `*args`:
+
+1. **In Function Definitions**:
+   
+   When defining a function, you can use `*args` to collect any additional positional arguments passed to the function.
+   
+   ```python
+   def function_with_args(first_arg, *args):
+       print("First argument:", first_arg)
+       for arg in args:
+           print("Another argument through *args:", arg)
+   ```
+
+   You can call this function with various numbers of arguments:
+   
+   ```python
+   function_with_args("hello", "world", 42, True)
+   ```
+
+   Output:
+   ```
+   First argument: hello
+   Another argument through *args: world
+   Another argument through *args: 42
+   Another argument through *args: True
+   ```
+
+2. **When Calling Functions**:
+   
+   You can use the `*` operator to unpack the elements of a list or tuple and pass them as separate positional arguments to a function.
+   
+   ```python
+   def function(a, b, c):
+       print(a, b, c)
+
+   args = (1, 2, 3)
+   function(*args)
+   ```
+
+   Output:
+   ```
+   1 2 3
+   ```
+
+### Important points:
+
+1. Inside the function, `args` is a tuple containing all the passed positional arguments.
+2. `*args` only collects **positional** arguments. To collect keyword (or named) arguments, you would use `**kwargs`.
+3. The name `args` is just a convention. You could technically use any name, like `*varargs`, but `*args` is most commonly used.
+
+Here's an example showing a combination of positional, `*args`, and `**kwargs`:
+
+```python
+def function(x, *args, **kwargs):
+    print("x:", x)
+    print("args:", args)
+    print("kwargs:", kwargs)
+
+function(1, 2, 3, 4, 5, a=6, b=7)
+```
+
+Output:
+```
+x: 1
+args: (2, 3, 4, 5)
+kwargs: {'a': 6, 'b': 7}
+```
+
+Remember, the real power of `*args` comes from its ability to make functions more flexible, allowing them to accept a varying number of arguments.
+
+
+## **Understanding and Using `**kwargs` in Python**
+
+In Python, `**kwargs` is a mechanism that allows a function to accept an arbitrary number of keyword arguments. The name `kwargs` stands for "keyword arguments." These keyword arguments are collected into a dictionary where the argument names are the keys, and their corresponding values are the dictionary values.
+
+### Usage of `**kwargs`:
+
+1. **In Function Definitions**:
+
+   When defining a function, you can use `**kwargs` to capture any additional keyword arguments that are passed to the function.
+   
+   ```python
+   def function_with_kwargs(**kwargs):
+       for key, value in kwargs.items():
+           print(f"Key: {key}, Value: {value}")
+   ```
+
+   You can call this function with various keyword arguments:
+
+   ```python
+   function_with_kwargs(first_name="John", last_name="Doe", age=30)
+   ```
+
+   Output:
+   ```
+   Key: first_name, Value: John
+   Key: last_name, Value: Doe
+   Key: age, Value: 30
+   ```
+
+2. **When Calling Functions**:
+
+   You can use the `**` operator to unpack the contents of a dictionary and pass them as separate keyword arguments to a function.
+
+   ```python
+   def function(a, b, c):
+       print(a, b, c)
+
+   kwargs = {'a': 1, 'b': 2, 'c': 3}
+   function(**kwargs)
+   ```
+
+   Output:
+   ```
+   1 2 3
+   ```
+
+### Important points:
+
+1. Inside the function, `kwargs` is a dictionary containing all the passed keyword arguments.
+2. `**kwargs` captures only **keyword** arguments that haven't been caught by other parameter names in the function definition.
+3. The name `kwargs` is convention, but you could technically use any name, like `**keyargs`, though `**kwargs` is the most recognized.
+
+Here's an example showing a combination of positional, `*args`, and `**kwargs`:
+
+```python
+def function(x, *args, **kwargs):
+    print("x:", x)
+    print("args:", args)
+    print("kwargs:", kwargs)
+
+function(1, 2, 3, 4, 5, a=6, b=7)
+```
+
+Output:
+```
+x: 1
+args: (2, 3, 4, 5)
+kwargs: {'a': 6, 'b': 7}
+```
+
+This mechanism makes functions in Python very flexible, allowing developers to create more generic functions or APIs that can accept a wide range of input parameters.
