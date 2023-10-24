@@ -1,7 +1,5 @@
 # Python - Almost a circle
 
-## Basic Concepts (Dont Forget)
-
 ## Learning Objectives
 
 ### **Serializing and Deserializing Custom Classes with JSON in Python**
