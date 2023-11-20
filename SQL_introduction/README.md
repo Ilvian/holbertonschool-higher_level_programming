@@ -337,3 +337,128 @@ FROM Customers WHERE Address IS NOT NULL;
 """
 
 ### SQL UPDATE Statement
+
+The 'UPDATE' statement is used to modify the existing records in a table.
+
+* UPDATE Syntax
+"""
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+"""
+Note: Be careful when updating records in a table! Notice the 'WHERE' clause in the 'UPDATE' statement. The 'WHERE' clause specifies which record(s) that should be updated. If you omit the 'WHERE' clause, all records in the table will be updated!
+
+* UPDATE Table
+The following SQL statement updates the first customer (CustomerID = 1) with a new contact person and a new city.
+Example:
+"""
+UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+WHERE CustomerID = 1;
+"""
+
+* UPDATE Multiple Records
+It is the WHERE clause that determines how many records will be updated.
+The following SQL statement will update the ContactName to "Juan" for all records where country is "Mexico":
+"""
+UPDATE Customers
+SET ContactName='Juan'
+WHERE Country='Mexico';
+"""
+
+* Update Warning!
+Be careful when updating records. If you omit the WHERE clause, ALL records will be updated!
+Example:
+"""
+UPDATE Customers
+SET ContactName='Juan';
+"""
+
+### SQL DELETE Statement
+
+The 'DELETE' statement is used to delete existing records in a table.
+
+* DELETE Syntax
+"""
+DELETE FROM table_name WHERE condition;
+"""
+Note: Be careful when deleting records in a table! Notice the 'WHERE' clause in the 'DELETE' statement. The 'WHERE' clause specifies which record(s) should be deleted. If you omit the 'WHERE' clause, all records in the table will be deleted!
+
+* SQL DELETE Example
+The following SQL statement deletes the customer "Alfreds Futterkiste" from the "Customers" table:
+"""
+DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+"""
+
+* Delete All Records
+1. It is possible to delete all rows in a table without deleting the table. This means that the table structure, attributes, and indexes will be intact:
+"""
+DELETE FROM table_name;
+"""
+2. The following SQL statement deletes all rows in the "Customers" table, without deleting the table:
+Example:
+"""
+DELETE FROM Customers;
+"""
+
+* Delete a Table
+To delete the table completely, use the 'DROP TABLE' statement.
+Remove the Customers table:
+"""
+DROP TABLE Customers;
+"""
+
+### SQL TOP, LIMIT, FETCH FIRST or ROWNUM Clause
+
+The SELECT TOP clause is used to specify the number of records to return.
+The SELECT TOP clause is useful on large tables with thousands of records. Returning a large number of records can impact performance.
+
+* Example
+Select only the first 3 records of the Customers table:
+"""
+SELECT TOP 3 * FROM Customers;
+"""
+Note: Not all database systems support the SELECT TOP clause. MySQL supports the LIMIT clause to select a limited number of records, while Oracle uses FETCH FIRST n ROWS ONLY and ROWNUM.
+
+### SQL MIN() and MAX() Functions
+
+The MIN() function returns the smallest value of the selected column.
+The MAX() function returns the largest value of the selected column.
+
+* Syntax
+"""
+SELECT MIN(column_name)
+FROM table_name
+WHERE condition;
+
+SELECT MAX(column_name)
+FROM table_name
+WHERE condition;
+"""
+
+* MIN Example
+Find the lowest price:
+"""
+SELECT MIN(Price)
+FROM Products;
+"""
+
+* MAN Example
+Find the highest price:
+"""
+SELECT MAX(Price)
+FROM Products;
+"""
+
+* Set Column Name (Alias)
+When you use MIN() or MAX(), the returned column will be named MIN(field) or MAX(field) by default. To give the column a new name, use the 'AS' keyword:
+"""
+SELECT MIN(Price) AS SmallestPrice
+FROM Products;
+"""
+
+### SQL COUNT() Function
+
+The COUNT() function returns the number of rows that matches a specified criterion.
+
+
