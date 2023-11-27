@@ -10,9 +10,6 @@ import sys
 
 
 if __name__ == "__main__":
-    """
-    Enter the database to get the states
-    """
     db = MySQLdb.connect(
             host="localhost",
             user=sys.argv[1],
@@ -21,9 +18,9 @@ if __name__ == "__main__":
             port=3306
             )
 cur = db.cursor()
-cur.execute(
-        "SELECT * FROM states WHERE name LIKE BINARY '{}' \
-        ORDER BY states.id ASC".format(sys.argv[4]))
+cur.execute("SELECT * FROM states \
+                 WHERE name LIKE BINARY '{}' \
+                 ORDER BY states.id ASC".format(argv[4]))
 rows = cur.fetchall()
 for row in rows:
     print(row)
