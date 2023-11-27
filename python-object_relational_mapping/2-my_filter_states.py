@@ -10,6 +10,9 @@ import sys
 
 
 if __name__ == "__main__":
+    """
+    Enter the database to get the states
+    """
     db = MySQLdb.connect(
             host="localhost",
             user=sys.argv[1],
