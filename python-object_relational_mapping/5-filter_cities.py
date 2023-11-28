@@ -22,7 +22,7 @@ if __name__ == "__name__":
     cur.execute("SELECT cities.name FROM cities JOIN states \
             ON states.id=cities.state_id WHERE states.name=%s", (sys.argv[4]))
     rows = cur.fetchall()
-    temp = list(row[0] for row in rows)
-    print(*temp, sep=", ")
+    if rows is not None:
+        print(", ".join(row[1] for row in rows))
     cur.close()
     db.close()
