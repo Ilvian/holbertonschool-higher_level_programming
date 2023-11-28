@@ -19,4 +19,10 @@ if __name__ == "__name__":
             port=3306
             )
     cur = db.cursor()
-    cur.execute("SELECT 
+    cur.execute("SELECT cities.name FROM cities JOIN states \
+            ON states.id=cities.state_id WHERE states.name=%s", (sys.argv[4]))
+    rows = cur.fetchall()
+    temp = list(row[0] for row in rows)
+    print(*tmp, sep=", ")
+    cur.close()
+    db.close()
