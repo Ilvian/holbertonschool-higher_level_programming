@@ -20,9 +20,11 @@ if __name__ == "__name__":
             )
     cur = db.cursor()
     cur.execute("SELECT cities.name FROM cities JOIN states \
-            ON states.id=cities.state_id WHERE states.name=%s", (sys.argv[4]))
+            ON states.id=cities.state_id WHERE states.name LIKE BINARY %s\
+            ORDER BY cities.id ASC", (sys.argv[4]))
     rows = cur.fetchall()
     if rows is not None:
         print(", ".join(row[1] for row in rows))
+
     cur.close()
     db.close()
