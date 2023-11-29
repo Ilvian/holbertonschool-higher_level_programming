@@ -24,7 +24,7 @@ if __name__ == "__name__":
             ORDER BY cities.id ASC", (sys.argv[4]))
     rows = cur.fetchall()
     if rows is not None:
-        print(", ".join(row[1] for row in rows))
+        print(", ".join(row[0] for row in rows))
 
     cur.close()
     db.close()
